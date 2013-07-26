@@ -121,7 +121,10 @@
   (postwalk (fn [x] (if (contains? smap x) (smap x) x)) form))
 
 (defn macroexpand-all
-  "Recursively performs all possible macroexpansions in form."
+  "Recursively performs all possible macroexpansions in form. For
+  development use only: This function does not perfectly emulate
+  macroexpansion by the Clojure compiler because it doesn't understand
+  special forms like 'let'."
   {:added "1.1"}
   [form]
   (prewalk (fn [x] (if (seq? x) (macroexpand x) x)) form))
