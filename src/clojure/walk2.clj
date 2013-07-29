@@ -9,18 +9,23 @@
   may be returned as an array-map, but a a sorted-map will be returned
   as a sorted-map with the same comparator."))
 
+;; From http://clojure.org/protocols :
+;;
+;; "You can implement a protocol on an interface ... if one interface
+;; is derived from the other, the more derived is used, else which one
+;; is used is unspecified."
+
 (extend-protocol Walkable
   nil
   (walkt [coll f] nil)
-  java.lang.Object   ; default: not a collection
-  (walkt [coll f]
-    coll)
-  clojure.lang.ASeq  ; abstract class which all sequences extend
-  (walkt [coll f]
-    (map f coll))
-  clojure.lang.AMapEntry  ; abstract class which all IMapEntry extend
+  java.lang.Object  ; default: not a collection
+  (walkt [x f] x)
+  clojure.lang.IMapEntry
   (walkt [coll f]
     (clojure.lang.MapEntry. (f (.key coll)) (f (.val coll))))
+  clojure.lang.ISeq  ; generic sequence fallback
+  (walkt [coll f]
+    (map f coll))
   clojure.lang.PersistentList  ; special case to preserve type
   (walkt [coll f]
     (apply list (map f coll)))
