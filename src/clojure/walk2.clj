@@ -29,6 +29,8 @@
   clojure.lang.PersistentList  ; special case to preserve type
   (walkt [coll f]
     (apply list (map f coll)))
+  clojure.lang.PersistentList$EmptyList  ; special case to preserve type
+  (walkt [coll f] '())
   clojure.lang.IRecord  ; any defrecord
   (walkt [coll f]
     (reduce (fn [r x] (conj r (f x))) coll coll)))
