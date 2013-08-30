@@ -2,7 +2,12 @@
 
 A reimplementation of the `clojure.walk` namespace.
 
-Differences from `clojure.walk`:
+Submitted as an enhancement to Clojure in [CLJ-1239](http://dev.clojure.org/jira/browse/CLJ-1239).
+
+**This repo is for demonstration only.**
+All further development/discussion should happen on Clojure's JIRA and mailing list.
+
+Differences from the original `clojure.walk`:
 
 * Protocol-based dispatch for better performance
 
@@ -12,8 +17,9 @@ Differences from `clojure.walk`:
 
 ## Releases and Dependency Information
 
-None yet. Run `lein install` in this directory, then use this
-dependency in a Leiningen project:
+No binary releases.
+
+Run `lein install` in this directory, then use this dependency in a Leiningen project:
 
     [com.stuartsierra/clojure.walk2 "0.1.0-SNAPSHOT"]
 
@@ -24,6 +30,7 @@ dependency in a Leiningen project:
     (require '[clojure.walk2 :as walk])
 
 The public API is identical to that of `clojure.walk`.
+
 See [clojure.walk API documentation](http://clojure.github.io/clojure/clojure.walk-api.html)
 
 
