@@ -111,6 +111,22 @@
     ;; only apply to maps
     (postwalk (fn [x] (if (map? x) (into {} (map f x)) x)) m)))
 
+(defn transform-keys
+  "Recursively transforms all keys in map `m` which return true for a
+  function `pred` by applying a function `f` to them."
+  {:added "1.6"}
+  [m pred f]
+  (let [func (fn [[k v]] (if (pred k) [(f k) v] [k v]))]
+    (postwalk (fn [x] (if (map? x) (into {} (map func x)) x)) m)))
+
+(defn transform-vals
+  "Recursively transforms values in map `m` which return true for a
+  function `pred` by applying a function `f` to them."
+  {:added "1.6"}
+  [m pred f]
+  (let [func (fn [[k v]] (if (pred v) [k (f v)] [k v]))]
+    (postwalk (fn [x] (if (map? x) (into {} (map func x)) x)) m)))
+
 (defn prewalk-replace
   "Recursively transforms form by replacing keys in smap with their
   values.  Like clojure/replace but works on any data structure.  Does
