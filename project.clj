@@ -3,7 +3,7 @@
   :url "https://github.com/stuartsierra/clojure.walk2"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :dependencies [[org.clojure/clojure "1.6.0-alpha3"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]
                                   [org.clojure/data.generators "0.1.2"]]
                    :source-paths ["dev"]}}
