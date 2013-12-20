@@ -5,13 +5,17 @@ A reimplementation of the `clojure.walk` namespace.
 Submitted as an enhancement to Clojure in [CLJ-1239](http://dev.clojure.org/jira/browse/CLJ-1239).
 
 **This repo is for demonstration only.**
-All further development/discussion should happen on Clojure's JIRA and mailing list.
+All further development/discussion should happen on
+[Clojure's JIRA](http://dev.clojure.org/jira/browse/CLJ-1239)
+and [mailing list](https://groups.google.com/forum/#!forum/clojure).
 
 Differences from the original `clojure.walk`:
 
 * Protocol-based dispatch for better performance
 
-* Support for records
+* Support for records (also implemented for the old clojure.walk
+  in [CLJ-1105](http://dev.clojure.org/jira/browse/CLJ-1105),
+  applied in Clojure 1.6)
 
 
 
