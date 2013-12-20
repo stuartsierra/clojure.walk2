@@ -61,7 +61,6 @@
   functions.  Applies inner to each element of form, building up a
   data structure of the same type, then applies outer to the result.
   Recognizes all Clojure data structures. Consumes seqs as with doall."
-
   {:added "1.1"}
   [inner outer form]
   (outer (walkt form inner)))
