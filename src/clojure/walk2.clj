@@ -36,6 +36,7 @@
     (reduce (fn [r x] (conj r (f x))) coll coll)))
 
 (defn- walkt-transient [coll f]
+  ;; Note: `transient` discards metadata as of Clojure 1.6.0
   (persistent!
    (reduce (fn [r x] (conj! r (f x))) (transient (empty coll)) coll)))
 
